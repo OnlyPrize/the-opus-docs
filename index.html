@@ -3,27 +3,39 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Opus — Subclasses / ซับคลาส</title>
-<meta name="description" content="The Opus: Chronicles of the Sundering — subclass overviews (EN/ไทย). A premium content module for Foundry VTT, D&D 5e 2024.">
+<title>The Opus — Subclasses &amp; Classes</title>
+<meta name="description" content="The Opus: Chronicles of the Sundering — public preview (EN/ไทย). A premium content module for Foundry VTT, D&D 5e 2024.">
 <style>
-  :root { --bg:#0d0a0c; --panel:#16101300; --card:#1b1419; --ink:#ece6e0; --muted:#b6a99f; --accent:#b3122a; --line:#3a2630; }
+  :root { --bg:#0d0a0c; --card:#1b1419; --ink:#ece6e0; --muted:#b6a99f; --accent:#b3122a; --line:#3a2630; }
   * { box-sizing:border-box; }
   body { margin:0; background:radial-gradient(1200px 600px at 50% -200px,#2a0d14,#0d0a0c 60%); color:var(--ink);
     font-family:"Segoe UI",system-ui,"Noto Sans Thai",sans-serif; line-height:1.6; }
-  .wrap { max-width:960px; margin:0 auto; padding:48px 20px 80px; }
-  header { text-align:center; margin-bottom:14px; }
-  header .kicker { letter-spacing:3px; text-transform:uppercase; color:var(--accent); font-size:13px; }
-  header h1 { font-size:38px; margin:6px 0 2px; }
-  header .sub { color:var(--muted); font-size:16px; }
-  .intro { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 20px; margin:24px 0 32px; color:var(--muted); font-size:14px; }
-  .grid { display:grid; gap:18px; }
-  .card { background:var(--card); border:1px solid var(--line); border-left:4px solid var(--accent); border-radius:12px; padding:18px 20px; }
-  .card .cls { color:var(--accent); font-size:12px; letter-spacing:2px; text-transform:uppercase; }
-  .card h2 { margin:2px 0 10px; font-size:22px; }
-  .card .th-name { color:var(--muted); font-size:16px; font-weight:400; }
-  .card .en { margin:0 0 10px; }
-  .card .th { margin:0; color:var(--muted); border-top:1px dashed var(--line); padding-top:10px; }
-  footer { text-align:center; color:var(--muted); font-size:13px; margin-top:40px; border-top:1px solid var(--line); padding-top:20px; }
+  .wrap { max-width:980px; margin:0 auto; padding:40px 20px 80px; }
+  header { text-align:center; margin-bottom:8px; }
+  header .kicker { letter-spacing:3px; text-transform:uppercase; color:var(--accent); font-size:12px; }
+  header h1 { font-size:34px; margin:6px 0 2px; }
+  header .sub { color:var(--muted); font-size:15px; }
+  nav { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin:22px 0 30px; }
+  nav a { color:var(--muted); text-decoration:none; padding:7px 13px; border:1px solid var(--line); border-radius:20px; font-size:13px; }
+  nav a:hover { color:var(--ink); border-color:var(--accent); }
+  nav a.on { background:var(--accent); color:#fff; border-color:var(--accent); }
+  h2.sec { font-size:15px; letter-spacing:2px; text-transform:uppercase; color:var(--accent); border-bottom:1px solid var(--line); padding-bottom:6px; margin:34px 0 16px; }
+  .grid { display:grid; gap:16px; }
+  .card { background:var(--card); border:1px solid var(--line); border-left:4px solid var(--accent); border-radius:12px; padding:16px 18px; }
+  .card .tag { color:var(--accent); font-size:11px; letter-spacing:2px; text-transform:uppercase; }
+  .card h3 { margin:2px 0 8px; font-size:20px; }
+  .th-name { color:var(--muted); font-size:15px; font-weight:400; }
+  .card .en { margin:0 0 8px; }
+  .card .th { margin:0; color:var(--muted); border-top:1px dashed var(--line); padding-top:8px; }
+  .meta { color:var(--muted); font-size:13px; margin:0 0 6px; }
+  .flav { color:#cbb; font-style:italic; margin:6px 0 0; }
+  ul.cat { list-style:none; padding:0; margin:0; display:grid; gap:8px; }
+  ul.cat li { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:10px 14px; display:flex; justify-content:space-between; align-items:baseline; gap:10px; flex-wrap:wrap; }
+  ul.cat .nm { font-size:16px; }
+  ul.cat .ty { color:var(--muted); font-size:12px; }
+  .pill { font-size:11px; padding:2px 9px; border-radius:20px; border:1px solid var(--line); color:var(--muted); white-space:nowrap; }
+  .intro { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 18px; margin:0 0 26px; color:var(--muted); font-size:14px; }
+  footer { text-align:center; color:var(--muted); font-size:13px; margin-top:46px; border-top:1px solid var(--line); padding-top:20px; }
   a { color:#e0738a; }
 </style>
 </head>
@@ -32,98 +44,92 @@
     <header>
       <div class="kicker">The Opus — Chronicles of the Sundering</div>
       <h1>Subclasses &amp; Classes</h1>
-      <div class="sub">ภาพรวมซับคลาส · English / ไทย</div>
+      <div class="sub">ภาพรวมซับคลาส · 13 subclasses · EN / ไทย</div>
     </header>
-    <div class="intro">
-      A premium content module for <strong>Foundry VTT</strong> (D&amp;D 5e, 2024 rules) — 13 original subclasses,
-      each with a novel automated mechanic. This page is a public preview; full feature, spell and item rules
-      are part of the module.<br>
-      โมดูลเนื้อหาสำหรับ Foundry VTT (D&amp;D 5e กฎ 2024) — 13 ซับคลาสต้นฉบับ แต่ละตัวมีกลไกอัตโนมัติเฉพาะตัว
-      หน้านี้เป็นตัวอย่างสาธารณะ (กฎเต็มของ feature/เวท/ไอเทมอยู่ในโมดูล)
-    </div>
+    <nav><a href="index.html" class="on">Subclasses · ซับคลาส</a><a href="spells.html">Spells · เวท</a><a href="items.html">Items · ไอเทม</a><a href="species.html">Species · เผ่า</a><a href="backgrounds.html">Backgrounds · ภูมิหลัง</a></nav>
+<div class="intro">A premium content module for <strong>Foundry VTT</strong> (D&amp;D 5e, 2024 rules) — 13 original subclasses with novel automated mechanics, plus themed spells, magic items, species and backgrounds. This is a public preview; full rules are part of the module.<br>โมดูลเนื้อหาสำหรับ Foundry VTT (D&amp;D 5e กฎ 2024) — 13 ซับคลาสต้นฉบับพร้อมกลไกอัตโนมัติ พร้อมเวท ไอเทม เผ่า และภูมิหลังตามธีม · หน้านี้เป็นตัวอย่างสาธารณะ กฎเต็มอยู่ในโมดูล</div>
     <main class="grid">
       <article class="card">
-        <div class="cls">Artificer</div>
-        <h2>Apex Engineer<span class="th-name"> · วิศวกรเอเพ็กซ์ (Apex Engineer)</span></h2>
+        <div class="tag">Artificer</div>
+        <h3>Apex Engineer<span class="th-name"> · วิศวกรเอเพ็กซ์ (Apex Engineer)</span></h3>
         <p class="en">Apex Engineers are artificers who treat the soul itself as a component. Following the philosophy of a long-vanished tyrant-engineer, they bind captured spirit into machinery, producing constructs that think, hunt, and obey. Where other artificers craft tools, the Apex Engineer crafts soldiers — and dreams of the perfect war-engine.</p>
         <p class="th">อาร์ทิฟิเซอร์ที่ปฏิบัติต่อ "วิญญาณ" เสมือนชิ้นส่วนเครื่องจักร สืบทอดปรัชญาของจอมเผด็จการ-วิศวกรที่สาบสูญ พวกเขาผนึกวิญญาณที่จับมาเข้ากับกลไก สร้างคอนสตรักต์ที่คิด ล่า และเชื่อฟังได้ จุดเด่นคือกลไก Decode และ Soul-Forged Construct เพื่อนคู่กาย</p>
       </article>
       <article class="card">
-        <div class="cls">Barbarian</div>
-        <h2>Leviathan Tide<span class="th-name"> · กระแสน้ำเลวีอาธาน (Leviathan Tide)</span></h2>
+        <div class="tag">Barbarian</div>
+        <h3>Leviathan Tide<span class="th-name"> · กระแสน้ำเลวีอาธาน (Leviathan Tide)</span></h3>
         <p class="en">These barbarians do not merely rage — they swell. Each blow they take feeds something ancient and oceanic inside them; every strike against them adds to a pressure that will, inevitably, break. Their enemies learn that hitting a Leviathan Tide barbarian is like punching the sea.</p>
         <p class="th">บาร์บาเรียนที่ไม่เพียงเกรี้ยวกราด แต่ "พองตัว" ทุกครั้งที่ถูกตีจะป้อนบางสิ่งโบราณดั่งมหาสมุทรภายใน สะสมเป็นเกจ Tidal Surge ที่เพิ่มขึ้นเมื่อรับดาเมจระหว่าง Rage แล้วปลดปล่อยเป็น Tidal Crash คลื่นทำลายล้างรอบตัว</p>
       </article>
       <article class="card">
-        <div class="cls">Bard</div>
-        <h2>College of the Hollow Mirror<span class="th-name"> · วิทยาลัยกระจกกลวง (College of the Hollow Mirror)</span></h2>
+        <div class="tag">Bard</div>
+        <h3>College of the Hollow Mirror<span class="th-name"> · วิทยาลัยกระจกกลวง (College of the Hollow Mirror)</span></h3>
         <p class="en">The Sundering left more than physical ruin. It left echoes — fragments of power that lingered after the sources were gone, patterns of force that repeated themselves in the residue of destroyed things. Bards of the College of the Hollow Mirror learned to hear those echoes and do something no other performer could: become them.</p>
         <p class="th">การล่มสลาย (Sundering) ทิ้งไว้มากกว่าซากปรักหักพัง — มันทิ้ง "เสียงสะท้อน" เศษพลังที่ยังคงอยู่หลังต้นกำเนิดดับไป บาร์ดสำนักนี้เรียนรู้ที่จะได้ยินและจำลองรูปแบบเหล่านั้นกลับมาใช้</p>
       </article>
       <article class="card">
-        <div class="cls">Cleric</div>
-        <h2>Domain of the Hallowed Light<span class="th-name"> · เขตแดนแสงศักดิ์สิทธิ์ (Domain of the Hallowed Light)</span></h2>
+        <div class="tag">Cleric</div>
+        <h3>Domain of the Hallowed Light<span class="th-name"> · เขตแดนแสงศักดิ์สิทธิ์ (Domain of the Hallowed Light)</span></h3>
         <p class="en">Clerics of the Domain of the Hallowed Light serve a radiant sovereign of the dawn — a winged being of living prism whose presence splits the world into impossible colors. Their faith is not gentle candlelight but the whole spectrum weaponized: blades of color, beams that bend through floating prisms, and a rainbow held in reserve until it bursts.</p>
         <p class="th">นักบวชที่รับใช้เจ้าแห่งรุ่งอรุณผู้เปล่งประกาย — สิ่งมีปีกที่ร่างเป็นปริซึมมีชีวิต ศรัทธาของพวกเขาไม่ใช่แสงเทียนอ่อนโยน แต่คือสเปกตรัมทั้งหมดที่ถูกแปลงเป็นอาวุธ: ใบมีดสีสัน แสงเจิดจ้าที่ทำลายความมืดและสิ่งไม่ตาย</p>
       </article>
       <article class="card">
-        <div class="cls">Druid</div>
-        <h2>Circle of Overgrowth<span class="th-name"> · วงเวียนแห่งการเติบโตล้น (Circle of Overgrowth)</span></h2>
+        <div class="tag">Druid</div>
+        <h3>Circle of Overgrowth<span class="th-name"> · วงเวียนแห่งการเติบโตล้น (Circle of Overgrowth)</span></h3>
         <p class="en">The Circle of Overgrowth does not follow the natural cycle of growth and decay — it accelerates it. Its druids believe the world is not sick; it is merely dormant, waiting for a single voice to tell it to grow. They carry that voice in their spells, and with each casting, the earth listens a little more.</p>
         <p class="th">ดรูอิดที่ไม่เดินตามวัฏจักรเกิด-ดับตามธรรมชาติ แต่ "เร่ง" มันให้เร็วขึ้น พวกเขาเชื่อว่าโลกไม่ได้ป่วย เพียงแค่หลับใหลรอเสียงปลุก พลังของพวกเขาขับเคลื่อนด้วยเกจ Bloom ที่สะสมจากการร่ายเวท แล้วระเบิดเป็นเถาวัลย์รัดศัตรู</p>
       </article>
       <article class="card">
-        <div class="cls">Fighter</div>
-        <h2>Ruinbreaker<span class="th-name"> · ผู้ทลายซาก (Ruinbreaker)</span></h2>
+        <div class="tag">Fighter</div>
+        <h3>Ruinbreaker<span class="th-name"> · ผู้ทลายซาก (Ruinbreaker)</span></h3>
         <p class="en">The Ruinbreaker is a warrior who has made a weapon of catastrophe itself. Where others parry and posture, the Ruinbreaker breaks — splitting shields, cratering the ground, and unmaking the proud one shattering blow at a time. They are living echoes of the great Sundering, and the battlefield bends, cracks, and collapses around them.</p>
         <p class="th">นักรบที่เปลี่ยนหายนะให้เป็นอาวุธ ที่อื่นปัดป้องและตั้งท่า แต่ Ruinbreaker "ทลาย" — ผ่าโล่ เจาะพื้นเป็นหลุม ทำลายความหยิ่งทีละหมัด ขับเคลื่อนด้วยเกจ Seismic Charge (Richter) ที่สะสมจากการโจมตี/รับดาเมจ แล้วปลดปล่อยเป็น Epicenter และ Breaking Point</p>
       </article>
       <article class="card">
-        <div class="cls">Monk</div>
-        <h2>Echo Cascade<span class="th-name"> · เสียงสะท้อนต่อเนื่อง (Echo Cascade)</span></h2>
+        <div class="tag">Monk</div>
+        <h3>Echo Cascade<span class="th-name"> · เสียงสะท้อนต่อเนื่อง (Echo Cascade)</span></h3>
         <p class="en">The Echo Cascade monks do not fight in single, decisive blows. They chain. Each strike resonates into the next; the rhythm builds like pressure behind a dam. Strike once — a ripple. Strike again — a wave. Strike a third time — the dam breaks. Their enemies learn, too late, that every moment they let the monk touch them was a moment they were losing.</p>
         <p class="th">มงค์ที่ไม่สู้ด้วยหมัดเดียวจบ แต่ "ร้อยต่อ" — แต่ละหมัดส่งแรงสู่หมัดถัดไป สะสมเหมือนแรงดันหลังเขื่อน ตีครั้งแรกเป็นระลอก ครั้งที่สองเป็นคลื่น ครั้งที่สามเขื่อนแตก ขับเคลื่อนด้วยเกจ Cascade ที่เพิ่มดาเมจและจบด้วย Stun/Paralyze</p>
       </article>
       <article class="card">
-        <div class="cls">Paladin</div>
-        <h2>Oath of the Iron Pyre<span class="th-name"> · คำสาบานเพลิงเหล็ก (Oath of the Iron Pyre)</span></h2>
+        <div class="tag">Paladin</div>
+        <h3>Oath of the Iron Pyre<span class="th-name"> · คำสาบานเพลิงเหล็ก (Oath of the Iron Pyre)</span></h3>
         <p class="en">Those who swear the Oath of the Iron Pyre believe that fire is not destruction — it is purification. The Sundering filled the world with rot, void corruption, and undying things that should have ended. The Iron Pyre paladins are the answer: burning away everything that cannot be saved so that something clean can grow from the ash.</p>
         <p class="th">พาลาดินที่เชื่อว่าไฟไม่ใช่การทำลาย แต่คือการ "ชำระล้าง" การล่มสลายเติมโลกด้วยความเน่าเปื่อยและสิ่งไม่ตาย เพลิงเหล็กคือคำตอบ: เผาผลาญทุกสิ่งที่ควรจบไปแล้วให้สิ้นซาก</p>
       </article>
       <article class="card">
-        <div class="cls">Ranger</div>
-        <h2>Voidrift Conclave<span class="th-name"> · คณะวอยด์ริฟต์ (Voidrift Conclave)</span></h2>
+        <div class="tag">Ranger</div>
+        <h3>Voidrift Conclave<span class="th-name"> · คณะวอยด์ริฟต์ (Voidrift Conclave)</span></h3>
         <p class="en">Rangers of the Voidrift Conclave have stared into the tears the the God-Devourer left in the weave of reality — and learned to step through them. Where other hunters stalk through forest and field, these Riftwalkers stalk through the spaces between, blinking across the battlefield in flashes of starless dark and force.</p>
         <p class="th">เรนเจอร์ที่จ้องเข้าไปในรอยฉีกที่ God-Devourer ทิ้งไว้ในผืนความจริง แล้วเรียนรู้ที่จะก้าวผ่าน ที่อื่นล่าผ่านป่าและทุ่ง แต่ Riftwalker เหล่านี้ล่าผ่าน "ช่องว่างระหว่างที่ว่าง" วาร์ปไปมาเพื่อโจมตีจากมุมที่เป็นไปไม่ได้</p>
       </article>
       <article class="card">
-        <div class="cls">Rogue</div>
-        <h2>Shadowrift<span class="th-name"> · รอยแยกเงา (Shadowrift)</span></h2>
+        <div class="tag">Rogue</div>
+        <h3>Shadowrift<span class="th-name"> · รอยแยกเงา (Shadowrift)</span></h3>
         <p class="en">The Shadowrift rogues learned their trade not in guild halls, but in the corruption zones — the spreading dark places where reality bleeds necrotic and every shadow hides a wound in the world. They fight like the rifts they slipped through: patient, precise, and then catastrophic. Each cut they land opens a little more. When the wound reaches a breaking point, it erupts.</p>
         <p class="th">โจรที่ฝึกฝนไม่ใช่ในกิลด์ แต่ในเขตคอรัปชัน — พื้นที่มืดที่ความจริงเลือดไหลเป็นพลังเนโครติก พวกเขาสู้เหมือนรอยแยกที่ลอดผ่าน: อดทน แม่นยำ ทุกเงาซ่อนบาดแผล กลไก Lacerate สะสมสแต็กบนเป้าแล้วระเบิดเป็น Rupture</p>
       </article>
       <article class="card">
-        <div class="cls">Sorcerer</div>
-        <h2>Sulfurous Heart<span class="th-name"> · หัวใจกำมะถัน (Sulfurous Heart)</span></h2>
+        <div class="tag">Sorcerer</div>
+        <h3>Sulfurous Heart<span class="th-name"> · หัวใจกำมะถัน (Sulfurous Heart)</span></h3>
         <p class="en">Sorcerers of the Sulfurous Heart carry an ember of the Brimstone Witch, the Cinder Witch, within their souls — a cursed fire that is as much a wound as a gift. Their magic is not the clean flame of evocation but brimstone: sulfurous, hateful fire shot through with the rot of unmade gods.</p>
         <p class="th">ซอร์เซอเรอร์ที่แบกถ่านไฟของแม่มดกำมะถัน (Brimstone/Cinder Witch) ไว้ในวิญญาณ — ไฟต้องสาปที่เป็นทั้งของขวัญและบาดแผล เวทของพวกเขาไม่ใช่เปลวไฟสะอาด แต่คือ brimstone ไฟกำมะถันเกลียดชัง ขับเคลื่อนด้วยเกจ The Pyre (0–5) ที่เพิ่มดาเมจไฟ/เนโครติก และเสี่ยง Backlash เมื่อเต็ม</p>
       </article>
       <article class="card">
-        <div class="cls">Warlock</div>
-        <h2>Cosmic Pact<span class="th-name"> · พันธสัญญาจักรวาล (Cosmic Pact)</span></h2>
+        <div class="tag">Warlock</div>
+        <h3>Cosmic Pact<span class="th-name"> · พันธสัญญาจักรวาล (Cosmic Pact)</span></h3>
         <p class="en">The Cosmic Pact is not a contract with a person — it is a contract with a law. Somewhere beyond the edge of the world, at a distance too great to visualise, something exists that is massive enough to bend everything else toward it. The warlock didn't find it. It found them — because from where it sits, they were already falling.</p>
         <p class="th">พันธสัญญาที่ไม่ได้ทำกับ "บุคคล" แต่ทำกับ "กฎ" — บางสิ่งที่อยู่ไกลเกินจินตนาการ ใหญ่พอจะดึงทุกอย่างเข้าหาตัว วอร์ล็อกขับเคลื่อนด้วยเกจ Void Resonance ที่สะสมจากการร่ายเวทแพ็กต์ แล้วปลดปล่อยเป็น Gravity Pulse ดึงและกระแทกศัตรู</p>
       </article>
       <article class="card">
-        <div class="cls">Wizard</div>
-        <h2>Permafrost Codex<span class="th-name"> · ตำราเพอร์มาฟรอสต์ (Permafrost Codex)</span></h2>
+        <div class="tag">Wizard</div>
+        <h3>Permafrost Codex<span class="th-name"> · ตำราเพอร์มาฟรอสต์ (Permafrost Codex)</span></h3>
         <p class="en">The Permafrost Codex school holds that all magic is, at its most refined, an expression of absolute stillness. Heat is noise; cold is truth. Its practitioners push every spell they cast toward thermodynamic zero — and when they reach it, the world around them stops.</p>
         <p class="th">สำนักเวทที่ถือว่าเวทมนตร์ขั้นสูงสุดคือการแสดงออกของ "ความนิ่งสมบูรณ์" ความร้อนคือเสียงรบกวน ความเย็นคือความจริง ผู้ใช้ผลักทุกเวทเข้าหาศูนย์สัมบูรณ์ ขับเคลื่อนด้วยเกจ Absolute Zero (Cold Charge) ที่ถึงขีดสุดแล้วแช่แข็งศัตรู (Restrained)</p>
       </article>
     </main>
-    <footer>
-      The Opus: Chronicles of the Sundering — © All rights reserved.<br>
-      เนื้อหาต้นฉบับ (clean-room) · สงวนลิขสิทธิ์
+    <footer>The Opus: Chronicles of the Sundering — © All rights reserved · สงวนลิขสิทธิ์<br>
+      <span style="font-size:12px">Public preview · full rules are part of the module / ตัวอย่างสาธารณะ — กฎเต็มอยู่ในโมดูล</span>
     </footer>
   </div>
 </body>
